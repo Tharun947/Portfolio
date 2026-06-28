@@ -1,0 +1,367 @@
+<header class="site-header" [class.menu-open]="isMenuOpen()">
+  <a class="logo" href="#home" aria-label="Portfolio home" (click)="scrollTo('home')">
+    <span>T</span>
+    Tharun
+  </a>
+
+  <nav class="desktop-nav" aria-label="Primary navigation">
+    @for (item of portfolio.navigation; track item.target) {
+      <button [class.active]="activeSection() === item.target" type="button" (click)="scrollTo(item.target)">
+        {{ item.label }}
+      </button>
+    }
+  </nav>
+
+  <div class="header-actions">
+    <button class="icon-button" type="button" aria-label="Toggle color theme" (click)="themeService.toggleTheme()">
+      <app-icon [name]="themeIcon()" />
+    </button>
+    <button class="icon-button mobile-toggle" type="button" aria-label="Toggle navigation menu" (click)="toggleMenu()">
+      <app-icon [name]="isMenuOpen() ? 'x' : 'menu'" />
+    </button>
+  </div>
+
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    @for (item of portfolio.navigation; track item.target) {
+      <button [class.active]="activeSection() === item.target" type="button" (click)="scrollTo(item.target)">
+        {{ item.label }}
+      </button>
+    }
+  </nav>
+</header>
+
+<main @sectionReveal>
+  <section id="home" class="hero section">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="container hero-grid">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">{{ portfolio.profile.title }}</p>
+        <h1>Hi, I am <span>{{ portfolio.profile.shortName }}</span></h1>
+        <div class="typing" aria-live="polite">{{ typedTitle() }}</div>
+        <p class="intro">{{ portfolio.profile.headline }}</p>
+        <div class="hero-actions">
+          <a class="button primary" [href]="portfolio.profile.resumePath" download>
+            <app-icon name="download" />
+            Download Resume
+          </a>
+          <button class="button secondary" type="button" (click)="scrollTo('contact')">Contact Me</button>
+        </div>
+        <div class="socials" aria-label="Social links">
+          @for (social of portfolio.socials; track social.label) {
+            <a [href]="social.href" target="_blank" rel="noreferrer" [attr.aria-label]="social.label">
+              <app-icon [name]="social.icon" />
+            </a>
+          }
+        </div>
+      </div>
+
+      <div class="hero-visual reveal">
+        <div class="portrait-shell">
+          <img
+            [alt]="portfolio.profile.name + ' profile image'"
+            decoding="async"
+            fetchpriority="high"
+            [src]="portfolio.profile.profileImage" />
+          <div class="availability">
+            <span></span>
+            Open to opportunities
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <div class="container">
+      <app-section-heading
+        class="reveal"
+        eyebrow="About"
+        title="Engineering with clarity, care, and momentum"
+        description="A real profile summary based on my software engineering experience, technical skills, and current education." />
+
+      <div class="about-grid reveal">
+        <article class="panel">
+          <h3>Professional Summary</h3>
+          @for (paragraph of portfolio.profile.summary; track paragraph) {
+            <p>{{ paragraph }}</p>
+          }
+        </article>
+
+        <div class="stats-grid">
+          @for (stat of portfolio.stats; track stat.label) {
+            <app-stat-card [value]="stat.value" [label]="stat.label" />
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="section muted-section">
+    <div class="container">
+      <app-section-heading
+        class="reveal"
+        eyebrow="Skills"
+        title="Technology stack"
+        description="Technologies and concepts listed in my resume, grouped for quick recruiter review." />
+
+      <div class="skills-grid reveal">
+        @for (category of portfolio.skillCategories; track category.title) {
+          <article class="skill-card">
+            <div class="card-title">
+              <span><app-icon [name]="category.icon" /></span>
+              <h3>{{ category.title }}</h3>
+            </div>
+            @for (skill of category.skills; track skill.name) {
+              <div class="skill-row">
+                <div>
+                  <strong>{{ skill.name }}</strong>
+                  <small>{{ skill.level }}%</small>
+                </div>
+                <span class="progress"><i [style.width.%]="skill.level"></i></span>
+              </div>
+            }
+          </article>
+        }
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="section">
+    <div class="container">
+      <app-section-heading class="reveal" eyebrow="Experience" title="Professional timeline" description="Professional experience from Cognizant, including client work for Lincoln Financial Group and TIAA." />
+
+      <div class="timeline reveal">
+        @for (experience of portfolio.experiences; track experience.company) {
+          <article class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <span>{{ experience.duration }}</span>
+              <h3>{{ experience.role }}</h3>
+              <p class="company">{{ experience.company }}</p>
+              <p class="company">{{ experience.location }}</p>
+              @if (experience.client) {
+                <p class="company">Client: {{ experience.client }}</p>
+              }
+              @if (experience.responsibilities.length) {
+                <ul>
+                  @for (responsibility of experience.responsibilities; track responsibility) {
+                    <li>{{ responsibility }}</li>
+                  }
+                </ul>
+              }
+              @if (experience.clientEngagements?.length) {
+                <div class="client-engagements">
+                  @for (engagement of experience.clientEngagements; track engagement.client) {
+                    <section>
+                      <p class="client-name">Client: {{ engagement.client }}</p>
+                      <ul>
+                        @for (responsibility of engagement.responsibilities; track responsibility) {
+                          <li>{{ responsibility }}</li>
+                        }
+                      </ul>
+                    </section>
+                  }
+                </div>
+              }
+              <div class="tag-list">
+                @for (technology of experience.technologies; track technology) {
+                  <app-tag [label]="technology" />
+                }
+              </div>
+            </div>
+          </article>
+        }
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="section muted-section">
+    <div class="container">
+      <app-section-heading class="reveal" eyebrow="Featured Projects" title="Selected engineering work" description="Project information sourced from my resume and kept free from unverified technologies." />
+
+      <div class="projects-grid reveal">
+        @for (project of portfolio.projects; track project.title) {
+          <article class="project-card">
+            <img [src]="project.image" [alt]="project.title + ' project screenshot'" loading="lazy" decoding="async" />
+            <div class="project-body">
+              <span>{{ project.subtitle }}</span>
+              <h3>{{ project.title }}</h3>
+              <p>{{ project.description }}</p>
+              <div class="tag-list">
+                @for (technology of project.stack; track technology) {
+                  <app-tag [label]="technology" />
+                }
+              </div>
+              <ul>
+                @for (feature of project.features; track feature) {
+                  <li><app-icon name="check" [size]="16" />{{ feature }}</li>
+                }
+              </ul>
+              <div class="project-actions">
+                @if (project.github) {
+                  <a [href]="project.github" target="_blank" rel="noreferrer"><app-icon name="github" /> GitHub</a>
+                }
+              </div>
+            </div>
+          </article>
+        }
+      </div>
+    </div>
+  </section>
+
+  <section id="education" class="section">
+    <div class="container">
+      <app-section-heading class="reveal" eyebrow="Education" title="Academic foundation" description="Education details listed in my current resume." />
+
+      <div class="education-grid reveal">
+        @for (item of portfolio.education; track item.degree) {
+          <article class="panel education-card">
+            <app-icon name="graduation" [size]="28" />
+            <span>{{ item.duration }}</span>
+            <h3>{{ item.degree }}</h3>
+            <strong>{{ item.university }}</strong>
+            <strong>{{ item.location }}</strong>
+            <p>{{ item.description }}</p>
+            @if (item.highlights?.length) {
+              <ul class="education-highlights">
+                @for (highlight of item.highlights; track highlight) {
+                  <li><app-icon name="check" [size]="16" />{{ highlight }}</li>
+                }
+              </ul>
+            }
+          </article>
+        }
+      </div>
+    </div>
+  </section>
+
+  <section id="certifications" class="section muted-section">
+    <div class="container">
+      <app-section-heading class="reveal" eyebrow="Certifications" title="Professional credentials" description="Only certifications listed in my resume." />
+
+      <div class="cert-grid reveal">
+        @for (certification of portfolio.certifications; track certification.name) {
+          <article class="cert-card">
+            <app-icon name="shield" [size]="26" />
+            <h3>{{ certification.name }}</h3>
+            <p>{{ certification.organization }}</p>
+            @if (certification.issueDate) {
+              <span>{{ certification.issueDate }}</span>
+            }
+            <div class="cert-actions">
+              <a [href]="certification.certificatePath" target="_blank" rel="noreferrer">View Certificate</a>
+              <a [href]="certification.certificatePath" download>Download Certificate</a>
+            </div>
+          </article>
+        }
+      </div>
+    </div>
+  </section>
+
+  <section id="resume" class="section resume-section">
+    <div class="container resume-panel reveal">
+      <div>
+        <p class="eyebrow">Resume</p>
+        <h2>{{ portfolio.profile.resume.title }}</h2>
+        <p>{{ portfolio.profile.resume.description }}</p>
+        <a class="button primary" [href]="portfolio.profile.resumePath" download><app-icon name="download" /> Download Resume</a>
+      </div>
+      <div class="resume-preview" aria-label="Resume preview">
+        <span>Resume Preview</span>
+        <h3>{{ portfolio.profile.resume.previewTitle }}</h3>
+        <p>{{ portfolio.profile.resume.previewStack }}</p>
+        <ul>
+          @for (highlight of portfolio.profile.resume.previewHighlights; track highlight) {
+            <li>{{ highlight }}</li>
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="container">
+      <app-section-heading class="reveal" eyebrow="Contact" title="Let us connect" description="Send a message through Email or reach me directly using the contact details below." />
+
+      <div class="contact-grid reveal">
+        <div class="contact-list">
+          @for (contact of portfolio.contactItems; track contact.label) {
+            <a class="contact-item" [href]="contact.href" target="_blank" rel="noreferrer">
+              <span><app-icon [name]="contact.icon" /></span>
+              <div>
+                <strong>{{ contact.label }}</strong>
+                <p>{{ contact.value }}</p>
+              </div>
+            </a>
+          }
+        </div>
+
+        <form class="contact-form" [formGroup]="contactForm" (ngSubmit)="submitContactForm()" novalidate>
+          <label>
+            Name
+            <input formControlName="name" type="text" autocomplete="name" placeholder="Your name" />
+            @if (contactForm.controls.name.invalid && contactForm.controls.name.touched) {
+              <small>Name must be at least 2 characters.</small>
+            }
+          </label>
+          <label>
+            Email
+            <input formControlName="email" type="email" autocomplete="email" placeholder="you@example.com" />
+            @if (contactForm.controls.email.invalid && contactForm.controls.email.touched) {
+              <small>Enter a valid email address.</small>
+            }
+          </label>
+          <label>
+            Subject
+            <input formControlName="subject" type="text" placeholder="Role, project, or collaboration" />
+            @if (contactForm.controls.subject.invalid && contactForm.controls.subject.touched) {
+              <small>Subject must be at least 4 characters.</small>
+            }
+          </label>
+          <label>
+            Message
+            <textarea formControlName="message" rows="5" placeholder="Tell me a little about the opportunity"></textarea>
+            @if (contactForm.controls.message.invalid && contactForm.controls.message.touched) {
+              <small>Message must be at least 12 characters.</small>
+            }
+          </label>
+          <button class="button primary" type="submit" [disabled]="isSending()">
+            {{ isSending() ? 'Sending...' : 'Send Message' }}
+          </button>
+          @if (submissionMessage()) {
+            <p [class.success]="submissionState() === 'success'" [class.error]="submissionState() === 'error'">
+              {{ submissionMessage() }}
+            </p>
+          }
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <a class="logo" href="#home" (click)="scrollTo('home')"><span>T</span> Tharun</a>
+      <p>{{ portfolio.profile.footerText }}</p>
+    </div>
+    <div class="footer-links">
+      @for (item of portfolio.navigation; track item.target) {
+        <button type="button" (click)="scrollTo(item.target)">{{ item.label }}</button>
+      }
+    </div>
+    <div class="socials">
+      @for (social of portfolio.socials; track social.label) {
+        <a [href]="social.href" target="_blank" rel="noreferrer" [attr.aria-label]="social.label">
+          <app-icon [name]="social.icon" />
+        </a>
+      }
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>Copyright {{ currentYear }}. All rights reserved.</span>
+    <button class="back-to-top" type="button" aria-label="Back to top" (click)="scrollTo('home')">
+      <app-icon name="arrow-up" />
+    </button>
+  </div>
+</footer>
