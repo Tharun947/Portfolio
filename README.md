@@ -93,7 +93,7 @@ Framework Preset: Angular
 Root Directory: outputs/enterprise-portfolio
 Install Command: npm install
 Build Command: npm run build
-Output Directory: dist/enterprise-portfolio/browser
+Output Directory: dist/portfolio
 ```
 
 Add these environment variables in Vercel if you want EmailJS delivery instead of the FormSubmit fallback:
