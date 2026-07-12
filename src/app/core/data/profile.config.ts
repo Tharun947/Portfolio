@@ -23,7 +23,7 @@ export const profileConfig: ProfileConfig = {
   github: 'https://github.com/Tharun947',
   linkedin: 'https://www.linkedin.com/in/tharun-venkadesh-manimaran-a74a821b1/',
   resumePath: 'assets/resume/Tharun_Venkadesh_Resume.pdf',
-  profileImage: 'assets/images/profile.jpg',
+  profileImage: 'assets/images/profile.png',
   summary: [
     'Software Engineer with 2+ years of experience designing and developing enterprise insurance applications.',
     'Skilled in Java, Spring Boot, Angular, and PostgreSQL, with strong expertise in REST API development, backend systems, and batch job automation.',
