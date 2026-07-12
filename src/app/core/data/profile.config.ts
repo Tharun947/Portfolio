@@ -180,31 +180,31 @@ export const profileConfig: ProfileConfig = {
       name: 'C Programming',
       organization: 'NIIT',
       issueDate: '',
-      certificatePath: 'assets/certificates/c-programming.pdf'
+      certificatePath: 'assets/certificates/C.jpeg'
     },
     {
       name: 'C++',
       organization: 'NIIT',
       issueDate: '',
-      certificatePath: 'assets/certificates/c-plus-plus.pdf'
+      certificatePath: 'assets/certificates/C++.jpeg'
     },
     {
       name: 'Java Programming',
       organization: 'NIIT',
       issueDate: '',
-      certificatePath: 'assets/certificates/java-programming.pdf'
+      certificatePath: 'assets/certificates/Java.jpeg'
     },
     {
-      name: 'Spring Boot',
+      name: 'Java Web Technologies',
       organization: 'NIIT',
       issueDate: '',
-      certificatePath: 'assets/certificates/spring-boot.pdf'
+      certificatePath: 'assets/certificates/Java-web.jpeg'
     },
     {
       name: 'Oracle Certified Professional: Java SE 11 Developer',
       organization: 'Oracle',
       issueDate: '',
-      certificatePath: 'assets/certificates/oracle-certified-professional-java-se-11-developer.pdf'
+      certificatePath: 'assets/certificates/oracle-certified-professional-java-se-11-developer.png'
     }
   ],
   projects: [
