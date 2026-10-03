@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-label="SCOUT school safety platform illustration">
+  <rect width="1200" height="750" fill="#102434"/>
+  <circle cx="990" cy="120" r="330" fill="#153546"/>
+  <path d="M600 108l115 44v97c0 90-55 150-115 181-60-31-115-91-115-181v-97z" fill="#193f50" stroke="#58d5ff" stroke-width="5"/>
+  <path d="M551 263l34 34 68-77" fill="none" stroke="#58d5ff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="600" y="508" text-anchor="middle" fill="#f8fafc" font-family="Arial,sans-serif" font-size="70" font-weight="700" letter-spacing="10">SCOUT</text>
+  <text x="600" y="561" text-anchor="middle" fill="#bbceda" font-family="Arial,sans-serif" font-size="28">School Safety Alert Platform</text>
+  <path d="M245 630h710" stroke="#345362" stroke-width="2"/>
+  <g fill="#58d5ff"><circle cx="245" cy="630" r="7"/><circle cx="482" cy="630" r="7"/><circle cx="718" cy="630" r="7"/><circle cx="955" cy="630" r="7"/></g>
+  <g fill="#bbceda" font-family="Arial,sans-serif" font-size="20" text-anchor="middle"><text x="245" y="673">Submit</text><text x="482" y="673">Notify</text><text x="718" y="673">Acknowledge</text><text x="955" y="673">Resolve</text></g>
+</svg>

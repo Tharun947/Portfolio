@@ -102,7 +102,7 @@
         class="reveal"
         eyebrow="Skills"
         title="Technology stack"
-        description="Technologies and concepts listed in my resume, grouped for quick recruiter review." />
+        description="Technologies and engineering practices applied across enterprise applications and full-stack projects." />
 
       <div class="skills-grid reveal">
         @for (category of portfolio.skillCategories; track category.title) {
@@ -111,15 +111,11 @@
               <span><app-icon [name]="category.icon" /></span>
               <h3>{{ category.title }}</h3>
             </div>
-            @for (skill of category.skills; track skill.name) {
-              <div class="skill-row">
-                <div>
-                  <strong>{{ skill.name }}</strong>
-                  <small>{{ skill.level }}%</small>
-                </div>
-                <span class="progress"><i [style.width.%]="skill.level"></i></span>
-              </div>
-            }
+            <ul class="skill-list" [attr.aria-label]="category.title + ' skills'">
+              @for (skill of category.skills; track skill.name) {
+                <li>{{ skill.name }}</li>
+              }
+            </ul>
           </article>
         }
       </div>
@@ -182,7 +178,7 @@
       <div class="projects-grid reveal">
         @for (project of portfolio.projects; track project.title) {
           <article class="project-card">
-            <img [src]="project.image" [alt]="project.title + ' project screenshot'" loading="lazy" decoding="async" />
+            <img [src]="project.image" [alt]="project.title + ' project illustration'" loading="lazy" decoding="async" />
             <div class="project-body">
               <span>{{ project.subtitle }}</span>
               <h3>{{ project.title }}</h3>

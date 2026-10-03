@@ -384,38 +384,24 @@
   width: 2.6rem;
 }
 
-.skill-row + .skill-row {
-  margin-top: 1rem;
-}
-
-.skill-row div {
+.skill-list {
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 0.45rem;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.skill-row strong {
-  color: var(--text);
-  font-size: 0.9rem;
-}
-
-.skill-row small {
-  color: var(--text-muted);
-}
-
-.progress {
+.skill-list li {
   background: var(--chip);
-  border-radius: 999px;
-  display: block;
-  height: 0.55rem;
-  overflow: hidden;
-}
-
-.progress i {
-  background: linear-gradient(90deg, var(--accent), var(--accent-strong));
-  border-radius: inherit;
-  display: block;
-  height: 100%;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-strong);
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.5;
+  padding: 0.5rem 0.75rem;
 }
 
 .timeline {

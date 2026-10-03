@@ -53,53 +53,83 @@ export const profileConfig: ProfileConfig = {
       title: 'Backend',
       icon: 'server',
       skills: [
-        { name: 'Java', level: 90 },
-        { name: 'Spring Boot', level: 88 },
-        { name: 'REST APIs', level: 88 },
-        { name: 'Hibernate', level: 80 }
+        { name: 'Java' },
+        { name: 'Spring Boot' },
+        { name: 'REST APIs' },
+        { name: 'Microservices' },
+        { name: 'Node.js' }
       ]
     },
     {
       title: 'Frontend',
       icon: 'code',
       skills: [
-        { name: 'Angular', level: 82 }
+        { name: 'Angular' },
+        { name: 'React' }
       ]
     },
     {
-      title: 'Database',
+      title: 'Databases',
       icon: 'database',
       skills: [
-        { name: 'PostgreSQL', level: 84 },
-        { name: 'MySQL', level: 76 }
+        { name: 'PostgreSQL' },
+        { name: 'MySQL' },
+        { name: 'SQL Queries' }
       ]
     },
     {
-      title: 'Enterprise Technologies',
+      title: 'Software Engineering',
       icon: 'briefcase',
       skills: [
-        { name: 'Autosys', level: 78 },
-        { name: 'Batch Job Automation', level: 78 },
-        { name: 'Production Support', level: 82 },
-        { name: 'Performance Optimization', level: 78 }
+        { name: 'Software Development' },
+        { name: 'Software Testing' },
+        { name: 'Unit Testing' },
+        { name: 'Debugging' },
+        { name: 'Code Reviews' },
+        { name: 'Agile/Scrum' },
+        { name: 'SDLC' },
+        { name: 'Performance Optimisation' },
+        { name: 'Multithreading' },
+        { name: 'Software Architecture' }
       ]
     },
     {
-      title: 'Tools',
+      title: 'Enterprise Technologies & Production Support',
+      icon: 'server',
+      skills: [
+        { name: 'Autosys' },
+        { name: 'Batch Job Automation' },
+        { name: 'L2/L3 Production Support' },
+        { name: 'Production Monitoring' },
+        { name: 'Incident Management' },
+        { name: 'SLA-Based Incident Resolution' },
+        { name: 'Root Cause Analysis (RCA)' },
+        { name: 'Application Troubleshooting' }
+      ]
+    },
+    {
+      title: 'Development & AI Tools',
       icon: 'tool',
       skills: [
-        { name: 'Git', level: 82 },
-        { name: 'Postman', level: 82 },
-        { name: 'Maven', level: 80 }
+        { name: 'Git' },
+        { name: 'GitHub' },
+        { name: 'Jira' },
+        { name: 'Maven' },
+        { name: 'Postman' },
+        { name: 'OpenAI Codex' },
+        { name: 'Claude Code' },
+        { name: 'GitHub Copilot' },
+        { name: 'AI API Integration' }
       ]
     },
     {
-      title: 'Programming Concepts',
+      title: 'Core Programming Concepts',
       icon: 'layers',
       skills: [
-        { name: 'OOP', level: 86 },
-        { name: 'Microservices', level: 78 },
-        { name: 'Agile/Scrum', level: 82 }
+        { name: 'Object-Oriented Programming (OOP)' },
+        { name: 'Data Structures & Algorithms' },
+        { name: 'Design Patterns' },
+        { name: 'API Integration' }
       ]
     }
   ],
@@ -119,7 +149,9 @@ export const profileConfig: ProfileConfig = {
             'Developed backend modules for account and policy management, improving business workflow efficiency.',
             'Integrated applications with PostgreSQL database and optimized queries for performance tuning.',
             'Automated batch workflows and scheduled jobs using Autosys, reducing manual intervention.',
-            'Resolved production issues and performed debugging and performance optimization.',
+            'Provided L2/L3 production support for critical applications.',
+            'Monitored production applications and resolved incidents within SLAs.',
+            'Performed root cause analysis of recurring production incidents.',
             'Followed Agile-based development practices with version control and code reviews.'
           ],
           technologies: ['Java', 'Spring Boot', 'REST APIs', 'PostgreSQL', 'Autosys', 'Git']
@@ -208,6 +240,22 @@ export const profileConfig: ProfileConfig = {
     }
   ],
   projects: [
+    {
+      title: 'SCOUT',
+      subtitle: "School Safety Alert Platform · Master's Capstone",
+      description: 'Extended a real client’s school safety platform as part of my Master of Information Technology at RMIT University. Developed full-stack workflows for staff and administrators to report, track, and respond to emergency incidents in real time.',
+      image: 'assets/projects/scout.svg',
+      stack: ['React', 'Node.js', 'Express', 'Firebase'],
+      features: [
+        'Role-based workflows for company admins, school admins, and staff',
+        'Alert submission, notification, acknowledgement, and resolution',
+        'Email and SMS notifications using Gmail and ClickSend',
+        'Client- and server-side validation with automated tests',
+        'Ownership of end-to-end production deployment'
+      ],
+      github: '',
+      demo: ''
+    },
     {
       title: 'Home Hunt',
       subtitle: 'Rental Property Management Platform',

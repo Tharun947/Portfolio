@@ -56,7 +56,6 @@ export interface SkillCategory {
 
 export interface Skill {
   readonly name: string;
-  readonly level: number;
 }
 
 export interface Experience {
