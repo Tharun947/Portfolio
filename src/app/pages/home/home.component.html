@@ -193,6 +193,19 @@
                   <li><app-icon name="check" [size]="16" />{{ feature }}</li>
                 }
               </ul>
+              @if (project.details?.length) {
+                <details class="project-details">
+                  <summary>Explore architecture &amp; full technology stack</summary>
+                  @for (section of project.details; track section.title) {
+                    <h4>{{ section.title }}</h4>
+                    <ul>
+                      @for (item of section.items; track item) {
+                        <li>{{ item }}</li>
+                      }
+                    </ul>
+                  }
+                </details>
+              }
               <div class="project-actions">
                 @if (project.github) {
                   <a [href]="project.github" target="_blank" rel="noreferrer"><app-icon name="github" /> GitHub</a>

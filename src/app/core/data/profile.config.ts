@@ -257,42 +257,65 @@ export const profileConfig: ProfileConfig = {
       demo: ''
     },
     {
-      title: 'Home Hunt',
-      subtitle: 'Rental Property Management Platform',
-      description: 'Full-stack web application for property listing, search, and rental applications using Spring Boot, Angular, and PostgreSQL.',
-      image: 'assets/projects/home-hunt.svg',
-      stack: ['Spring Boot', 'Angular', 'PostgreSQL'],
-      features: ['Property listing', 'Property search', 'Rental applications'],
+      title: 'MelbBank',
+      subtitle: 'Full-Stack Digital Banking Platform',
+      description: 'A comprehensive full-stack digital banking platform designed to provide a secure and seamless banking experience. Integrates customer banking, financial management, and administrative operations through dedicated portals with role-based access control.',
+      image: 'assets/projects/melb-bank.svg',
+      stack: ['Java', 'Spring Boot', 'Angular', 'PostgreSQL'],
+      features: [
+        'Authentication & Security: JWT authentication, role-based authorization, password management, and session management.',
+        'Account Management: Savings, current, and joint accounts, account opening requests, balance enquiries, and account statements.',
+        'Money Transfers: Internal and external transfers, beneficiary management, scheduled and recurring transfers, transaction history, and receipts.',
+        'Payments & Cards: Bill payments, BPAY and PayID simulations, debit and credit card management, card freezing, and spending limits.',
+        'Loans & Fixed Deposits: Loan applications, repayment schedules, EMI calculators, fixed deposit management, and interest calculations.',
+        'Financial Analytics: Budget tracking, spending analysis, income and expense reports, financial insights, and interactive dashboards.',
+        'Admin Portal: Customer and account management, transaction monitoring, loan approvals, reporting, audit logs, and system configuration.'
+      ],
+      details: [
+        {
+          title: 'Technical Architecture & Engineering',
+          items: [
+            'Modular Design: Organised banking functionality into independent modules with dedicated controllers, services, repositories, entities, and DTOs.',
+            'REST API Development: Designed APIs to connect the Angular frontend with Spring Boot backend services.',
+            'Security: Implemented JWT authentication, role-based authorization, and protected API endpoints.',
+            'Database Management: Used PostgreSQL with Spring Data JPA to manage banking data and entity relationships.',
+            'Transaction Management: Designed transaction processing with balance validation, transfer records, and database transaction consistency.',
+            'Error Handling & Validation: Applied request validation, structured exception handling, and consistent API responses.',
+            'Code Quality: Applied separation of concerns, reusable components, and established software engineering practices.'
+          ]
+        },
+        {
+          title: 'Technology Stack',
+          items: [
+            'Backend: Java, Spring Boot, Spring Security, Spring Data JPA, REST APIs',
+            'Frontend: Angular, Angular Material, TypeScript',
+            'Database: PostgreSQL',
+            'Security: JWT Authentication, Role-Based Access Control',
+            'Tools: Maven, Swagger/OpenAPI, Git, Postman'
+          ]
+        }
+      ],
       github: '',
       demo: ''
     },
     {
-      title: 'Melb Bank',
-      subtitle: 'Banking Application',
-      description: 'Banking system with account management, transactions, and secure authentication using Spring Boot and REST APIs.',
-      image: 'assets/projects/melb-bank.svg',
-      stack: ['Spring Boot', 'REST APIs'],
-      features: ['Account management', 'Transactions', 'Secure authentication'],
+      title: 'Home Hunt',
+      subtitle: 'Rental Property Management Platform',
+      description: 'Full-stack web application for property listing, search, and rental applications using Spring Boot, Angular, and PostgreSQL.',
+      image: 'assets/projects/home-hunt.svg',
+      stack: ['Java','Spring Boot', 'Angular', 'PostgreSQL'],
+      features: ['Property listing', 'Property search', 'Rental applications'],
       github: '',
       demo: ''
     },
+
     {
       title: 'Web Content Summarizer',
       subtitle: 'Chrome Extension',
       description: 'Chrome extension to extract and summarize web content using AI APIs with backend integration via Spring Boot.',
       image: 'assets/projects/ai-summarizer.svg',
-      stack: ['Chrome Extension', 'AI APIs', 'Spring Boot'],
+      stack: ['Java','Chrome Extension', 'AI APIs', 'Spring Boot'],
       features: ['Web content extraction', 'AI-powered summarization', 'Spring Boot backend integration'],
-      github: '',
-      demo: ''
-    },
-    {
-      title: 'Library Management System',
-      subtitle: 'Academic Resource Platform',
-      description: 'Library management application for managing books, members, borrowing workflows, and library records.',
-      image: 'assets/projects/library.svg',
-      stack: ['Java', 'Spring Boot', 'Database Management Systems'],
-      features: ['Book management', 'Member records', 'Borrowing workflows', 'Library records'],
       github: '',
       demo: ''
     }

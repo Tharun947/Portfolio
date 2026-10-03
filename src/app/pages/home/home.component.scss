@@ -860,3 +860,35 @@ ul {
     gap: 1rem;
   }
 }
+
+.project-details {
+  border-top: 1px solid var(--border);
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+}
+
+.project-details summary {
+  color: var(--accent);
+  cursor: pointer;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.project-details h4 {
+  color: var(--text-strong);
+  margin: 1.25rem 0 0.75rem;
+}
+
+.project-details li {
+  display: list-item;
+  margin-bottom: 0.75rem;
+}
+
+.project-body li {
+  align-items: flex-start;
+}
+
+.project-body li app-icon {
+  flex-shrink: 0;
+  margin-top: 0.35rem;
+}

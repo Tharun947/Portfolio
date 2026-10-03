@@ -82,6 +82,10 @@ export interface Project {
   readonly image: string;
   readonly stack: readonly string[];
   readonly features: readonly string[];
+  readonly details?: readonly {
+    readonly title: string;
+    readonly items: readonly string[];
+  }[];
   readonly github?: string;
   readonly demo?: string;
 }
